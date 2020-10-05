@@ -1,8 +1,11 @@
 ## Clone DropBox 
 
-
+Instalação
 Dependência do front-end
-    - bower install (public/)
+ - bower install (public/)
 
 Dependência back-end Express
-    - npm install
+ - npm install
+
+Executar
+- npm start
