@@ -192,8 +192,6 @@ class DropBoxController {
 
                 });
 
-                //console.log(responses);
-
             }).catch(err => {
                 console.log(err);
 
@@ -219,7 +217,6 @@ class DropBoxController {
         });
 
         this.listFilesEl.addEventListener('selectionchange', e=>{
-            //console.log('selectionchange', this.getSelection().length);
             switch (this.getSelection().length) {
 
                 case 0:
@@ -249,12 +246,10 @@ class DropBoxController {
 
             this.btnSendFilesEl.disabled = true;
 
-            //console.log(event.target.files);
             this.uploadTask(event.target.files).then(responses => {
 
                 responses.forEach(resp => {
 
-                    console.log('responses', responses);
                       this.getFirebaseRef().push().set({
 
                         name: resp.name,
@@ -399,8 +394,6 @@ class DropBoxController {
     
         this.namefileEl.innerHTML = file.name;
         this.timeleftEl.innerHTML = this.formatTimeToHuman(timeleft);  
-
-        //console.log(timespent, timeleft, porcent)
 
     }
 
@@ -593,7 +586,6 @@ class DropBoxController {
                         </g>
                     </svg>
                 `;
-
         }
 
     }
@@ -627,7 +619,6 @@ class DropBoxController {
                 let key = snapshotItem.key;
                 let data = snapshotItem.val();
               
-                //console.log(key, data);
                 if(data.type) {    
                     this.listFilesEl.appendChild(this.getFileView(data, key));
                 }
@@ -644,7 +635,6 @@ class DropBoxController {
 
         this.renderNav();
         this.readFiles();
-
 
     }
 
@@ -664,7 +654,6 @@ class DropBoxController {
 
                 span.innerHTML = folderName;
                 
-
             } else {
 
                 span.className = 'breadcrumb-segment__wrapper';
@@ -731,7 +720,6 @@ class DropBoxController {
                     let indexEnd;
                     let lis = li.parentElement.childNodes;
 
-                    //console.log(li.parentElement.childNodes);
                     lis.forEach((el, index) => {
 
                         if(firstLi === el) indexStart = index;
@@ -741,13 +729,11 @@ class DropBoxController {
                     
                     let index = [indexStart, indexEnd].sort();
 
-                    //console.log(index);
                     lis.forEach((el, i) => { 
 
                         if(i >= index[0] && i <= index[1]) {
                             el.classList.add('selected');
                         }
-
 
                     });
 
